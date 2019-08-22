@@ -20,7 +20,7 @@ const TableBody = props => {
         <td>{linha.nome}</td>
         <td>{linha.curso}</td>
         <td>{linha.preco}</td>
-        <td><button onClick = { () => { props.removeProduto(index) } }>Remover</button></td>
+        <td><button className="waves-effect waves-light btn red lighten-1" onClick = { () => { props.removeProduto(index) } }>Remover</button></td>
       </tr>
     )
   });
@@ -38,7 +38,7 @@ class ProductList extends Component {
     console.log( product )
     return(
       <Fragment>
-        <table>
+        <table className="centered highlight">
           <TableHead />
           <TableBody product={product} removeProduto={removeProduto} />
         </table>

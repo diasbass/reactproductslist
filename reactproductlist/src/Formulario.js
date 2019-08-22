@@ -28,29 +28,51 @@ class Formulario extends Component {
     const { nome, curso, preco } = this.state;
     return(
       <form>
-          <label htmlFor="nome">Nome</label>
+          <div className="row">
+          <div className="input-field col s12">
+          <h5>Novo cadastro</h5>
+          </div>
+          
+          <div className="input-field col s4">
+          
+          <label className="input-field" htmlFor="nome">Nome</label>
           <input
+              className="validate"
               id="nome"
               type="text"
               name="nome"
               value={nome}
               onChange={this.escutadorDeInput} />
-          <label htmlFor="curso">Curso</label>
+          </div>
+
+          <div className="input-field col s4">
+          <label className="input-field" htmlFor="curso">Curso</label>
           <input
+              className="validate"
               id="curso"
               type="text"
               name="curso"
               value={curso}
               onChange={this.escutadorDeInput} />
-          <label htmlFor="preco">Preço</label>
+          </div>
+
+          <div className="input-field col s4">
+          <label className="input-field" htmlFor="preco">Preço</label>
           <input
+              className="validate"
               id="preco"
               type="text"
               name="preco"
               value={preco}
               onChange={this.escutadorDeInput} />
-          <button type="button" onClick={this.submitFormulario}>Salvar
+          </div>
+          
+          <div className="input-field col s12">
+          <button className="waves-effect waves-light btn indigo lighten-1" type="button" onClick={this.submitFormulario}>Salvar
           </button>
+          </div>
+          
+          </div>
       </form>
     )
   }

@@ -16,11 +16,11 @@ const TableHead = () => {
 const TableBody = props => {  
   const linhas = props.product.map((linha, index) => {
     return(
-      <tr>
+      <tr key={index}>
         <td>{linha.nome}</td>
         <td>{linha.curso}</td>
         <td>{linha.preco}</td>
-        <td><button>Remover</button></td>
+        <td><button onClick = { () => { props.removeProduto(index) } }>Remover</button></td>
       </tr>
     )
   });
@@ -34,13 +34,13 @@ const TableBody = props => {
 
 class ProductList extends Component {
   render(){
-    const { product } = this.props;
+    const { product, removeProduto } = this.props;
     console.log( product )
     return(
       <Fragment>
         <table>
           <TableHead />
-          <TableBody product={product} />
+          <TableBody product={product} removeProduto={removeProduto} />
         </table>
       </Fragment>
     ) 

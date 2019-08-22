@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 //import './App.css';
 import ProductList from './ProductList';
+import Formulario from './Formulario';
 
 class App extends Component {
   state = {
@@ -40,11 +41,18 @@ class App extends Component {
     )
   }
 
+  escutadorDeSubmit = product => {    
+    this.setState({
+      product: [...this.state.product, product]
+    })
+  }
+
   render(){
     return (
-      <div className="App">
+      <Fragment>
         <ProductList product = {this.state.product} removeProduto = {this.removeProduto} />
-      </div>
+        <Formulario escutadorDeSubmit={this.escutadorDeSubmit} />
+      </Fragment>
     );
   }
 }
